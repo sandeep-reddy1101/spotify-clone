@@ -3,15 +3,18 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
+
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
+import { Song } from "@/types";
 
 interface sidebarProps {
   children: React.ReactNode;
+  songs: Song[];
 }
 
-const Sidebar: React.FC<sidebarProps> = ({ children }) => {
+const Sidebar: React.FC<sidebarProps> = ({ children, songs }) => {
   const pathName = usePathname();
   const routes = useMemo(
     () => [
@@ -41,10 +44,12 @@ const Sidebar: React.FC<sidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="h-full overflow-y-auto">
-          <Library />
+          <Library songs={songs} />
         </Box>
       </div>
-      <main className="py-2 pr-2 flex-1 overflow-y-auto h-full">{children}</main>
+      <main className="py-2 md:pr-2 flex-1 overflow-y-auto h-full">
+        {children}
+      </main>
     </div>
   );
 };
