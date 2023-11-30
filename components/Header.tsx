@@ -6,12 +6,12 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { FaUserAlt } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 import { useUser } from "@/hooks/useUser";
 import Button from "./Button";
 import useAuthModal from "@/hooks/useAuthModal";
-import { FaUserAlt } from "react-icons/fa";
-import { toast } from "react-hot-toast";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -59,10 +59,16 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           </button>
         </div>
         <div className="flex md:hidden gap-x-2 items-center">
-          <button className="flex items-center justify-center rounded-full p-2 bg-white transition hover:opacity-75">
+          <button
+            onClick={() => router.push("/")}
+            className="flex items-center justify-center rounded-full p-2 bg-white transition hover:opacity-75"
+          >
             <HiHome className="text-black" size={20} />
           </button>
-          <button className="flex items-center justify-center rounded-full p-2 bg-white transition hover:opacity-75">
+          <button
+            onClick={() => router.push("/search")}
+            className="flex items-center justify-center rounded-full p-2 bg-white transition hover:opacity-75"
+          >
             <BiSearch className="text-black" size={20} />
           </button>
         </div>
@@ -75,7 +81,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
               <Button
                 className="bg-white"
                 onClick={() => {
-                  router.push("/about");
+                  router.push("/");
+                  // TODO: add /about in above after creating about page
                 }}
               >
                 <FaUserAlt />

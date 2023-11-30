@@ -9,3 +9,24 @@ body,
   background-color: black;
   color-scheme: dark;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(38 38 38);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(82 82 82);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(64 64 64);
+}
