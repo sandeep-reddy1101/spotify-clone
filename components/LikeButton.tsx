@@ -4,10 +4,10 @@ import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 interface LikeButtonProps {
   songId: string;
